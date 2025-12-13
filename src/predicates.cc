@@ -2,6 +2,17 @@
 #include "predicates.h"
 using size_type = std::string::size_type;
 
+bool wrong_fn::operator()(const std::string &c) {
+    
+}
+
+bool correct_fn::operator()(const std::string &c) {
+    // implementation
+}
+
+bool misplaced_fn::operator()(const std::string &c) {
+    // implementation
+}
 
 bool contains_any_of(const std::string s, const std::string& cs) {
     for (char c : cs) {

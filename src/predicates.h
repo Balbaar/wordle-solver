@@ -19,7 +19,7 @@ private:
     std::string l;
 };
 
-//All correct letters with indices
+//All correct letters with indices - Green letters
 struct correct_fn
 {
     correct_fn(const letters_and_indices &idxs) : m{idxs} {}
@@ -29,7 +29,7 @@ private:
     letters_and_indices m;
 };
 
-//All misplaced letters with indices
+//All misplaced letters with indices - Yellow letters
 struct misplaced_fn
 {
     misplaced_fn(const letters_and_indices &idxs) : m{idxs} {}
