@@ -22,6 +22,7 @@ bin/wordle_solver: build/main.o build/filter.o build/candidates.o build/input.o 
 
 
 
+
 #########
 # tests #
 #########

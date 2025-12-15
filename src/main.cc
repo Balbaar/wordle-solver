@@ -5,14 +5,17 @@
 #include "filter.h"
 
 
+
 int main() {
     //1. read file from command line argument
-    std::vector<std::string> candidates = read_candidates(std::cin);
+    std::vector<std::string> candidates = read_candidates("words.txt");
+    std::cout << "total candidates: " << candidates.size() << "\n";
 
     //Loop 2-3 until one candidate left
     //  2. prompt user for input
     //  3. filter candidates based on input
-    while(true) {
+    exclude_word exclude("", {}, {});
+    while(candidates.size() > 1) {
         std::tuple<std::string, letters_and_indices, letters_and_indices> user_input = prompt(); //Prompt user for input
         
         //Filter candidates
@@ -26,12 +29,16 @@ int main() {
         candidates = filtered;
         
         std::cout << "candidates left: " << candidates.size() << "\n";
+        
+        int count = 0;
         for (const auto& c : candidates) {
+            if (count++ >= 10) {
+                std::cout << "... more\n";
+                break;
+            }
             std::cout << c << "\n";
         }
     }
-
-    
 }
 
 
