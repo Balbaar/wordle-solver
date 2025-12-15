@@ -11,7 +11,7 @@ int main() {
     std::vector<std::string> candidates = read_candidates("words.txt");
     std::cout << "total candidates: " << candidates.size() << "\n";
 
-    //Loop 2-3 until one candidate left
+    //Loop 2-3 until one candidate left or eof
     //  2. prompt user for input
     //  3. filter candidates based on input
     while(candidates.size() > 1 or std::cin.eof()) {
@@ -29,7 +29,7 @@ int main() {
         
         std::cout << "candidates left: " << candidates.size() << "\n";
         
-        int count = 0;
+        int count = 0; //Limit output to 10 candidates
         for (const auto& c : candidates) {
             if (count++ >= 10) {
                 std::cout << "... more\n";

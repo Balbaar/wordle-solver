@@ -1,11 +1,10 @@
-/*
-This will take in a input stream to read all words
-*/ 
-
 #include <fstream>
 #include "candidates.h"
 
-
+/*
+@param filename: the file to read words from
+@return a vector of strings containing all 5-letter words from the file
+*/
 std::vector<std::string> read_candidates(const std::string filename) {
     std::ifstream in(filename);
 

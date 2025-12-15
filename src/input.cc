@@ -5,7 +5,10 @@ Ask user for green, yellow, gray letters
 #include <iostream>
 #include <sstream>
 
-
+/*
+Prompts the user for wrong, correct and misplaced letters.
+@returns tuple of (wrong letters, correct letters with indices, misplaced letters with indices)
+*/
 std::tuple<std::string, letters_and_indices, letters_and_indices> prompt() {
     std::string wrong;
     std::cout << "enter wrong letters:\n";
@@ -23,7 +26,11 @@ std::tuple<std::string, letters_and_indices, letters_and_indices> prompt() {
     return {wrong, corr, misp};
 }
 
-//takes input lines example: "a 0 l 1 e 3"
+/*
+Helper function for taking user input and converting it into latters_and_indices data type.
+@param line: string of user input (ex: e 1 b 3)
+@return letters_and_indices of the user input
+*/
 letters_and_indices build_list(const std::string& line) {
     letters_and_indices result;
     std::istringstream iss(line);
