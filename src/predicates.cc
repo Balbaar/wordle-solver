@@ -2,8 +2,16 @@
 #include "predicates.h"
 using size_type = std::string::size_type;
 
+wrong_fn::wrong_fn(const std::string &letters) {
+    l.append(letters);
+}
+
 bool wrong_fn::operator()(const std::string &c) {
     return !contains_any_of(c, l);
+}
+
+correct_fn::correct_fn(const letters_and_indices &idxs) {
+    append(m, idxs);
 }
 
 bool correct_fn::operator()(const std::string &c) {
@@ -13,6 +21,10 @@ bool correct_fn::operator()(const std::string &c) {
         }
     }
     return true;
+}
+
+misplaced_fn::misplaced_fn(const letters_and_indices &idxs) {
+    append(m, idxs);
 }
 
 bool misplaced_fn::operator()(const std::string &c) {
@@ -49,5 +61,11 @@ bool contains_but_not_at(const std::string& s, char c, size_type pos) {
     return false;
 }
 
+
+inline void append(letters_and_indices &m, const letters_and_indices &to_append) {
+    for (const auto& it : to_append) {
+        m[it.first] += it.second;
+    }
+}
 
 
