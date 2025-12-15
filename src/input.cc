@@ -3,6 +3,7 @@ Ask user for green, yellow, gray letters
 */
 #include "input.h"
 #include <iostream>
+#include <sstream>
 
 
 std::tuple<std::string, letters_and_indices, letters_and_indices> prompt() {
@@ -22,6 +23,14 @@ std::tuple<std::string, letters_and_indices, letters_and_indices> prompt() {
     return {wrong, corr, misp};
 }
 
+//takes input lines example: "a 0 l 1 e 3"
 letters_and_indices build_list(const std::string& line) {
-
+    letters_and_indices result;
+    std::istringstream iss(line);
+    std::string letter;
+    size_type index;
+    while (iss >> letter >> index) {
+        result[index] = letter;
+    }
+    return result;
 }

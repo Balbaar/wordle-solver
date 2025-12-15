@@ -1,3 +1,5 @@
+#ifndef PREDICATES_H
+#define PREDICATES_H
 #include <string>
 #include <map>
 
@@ -39,3 +41,4 @@ private:
     letters_and_indices m;
 
 };
+#endif // PREDICATES_H
