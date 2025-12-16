@@ -14,7 +14,7 @@ int main() {
     //Loop 2-3 until one candidate left or eof
     //  2. prompt user for input
     //  3. filter candidates based on input
-    while(candidates.size() > 1 or std::cin.eof()) {
+    while(candidates.size() > 1 && !std::cin.eof()) {
         std::tuple<std::string, letters_and_indices, letters_and_indices> user_input = prompt(); //Prompt user for input
         
         //Filter candidates

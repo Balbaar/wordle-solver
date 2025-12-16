@@ -26,14 +26,14 @@ bin/wordle_solver: build/main.o build/filter.o build/candidates.o build/input.o 
 #########
 # tests #
 #########
-test: test_predicates
-	./bin/test_predicates
+test: build/test_predicates
+	./build/test_predicates
 
 
 
-bin/test_predicates: tests/test_predicates.cc build/predicates.o
+build/test_predicates: tests/test_predicates.cc build/predicates.o
 	mkdir -p bin
-	$(CXX) $(CXXFLAGS) -o bin/test_predicates tests/test_predicates.cc build/predicates.o
+	$(CXX) $(CXXFLAGS) tests/test_predicates.cc build/predicates.o -o build/test_predicates
 
 
 ##############
